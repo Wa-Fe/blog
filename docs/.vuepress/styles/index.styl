@@ -1,0 +1,102 @@
+a.sidebar-link.active{
+    border-color: #fff !important;
+}
+
+.sidebar {
+        left: auto;
+        user-select: none;
+ }
+
+ .theme-default-content:not(.custom) {
+        // max-width: 900px
+        margin-left: 25px;
+}
+
+
+div[class*="language-"] {
+    background-color: #f9f9f9;
+}
+
+code[class*="language-"], pre[class*="language-"]{
+    font-family: 'Source Code Pro', monospace;
+}
+
+// 代码标签
+.token.tag {
+    color: #3182bd;    
+}
+
+// 代码括号
+.token.punctuation {
+    color: #3182bd;
+}
+
+//关键词
+.token.keyword{
+    color:#e2777a;
+}
+
+.token.property{
+     color: #3182bd;
+}
+
+.token.attr-value{
+    color:#42b983
+}
+.token.string{
+    color:#42b983
+}
+
+
+// 代码块：默认字体
+.theme-default-content pre code, .theme-default-content pre[class*="language-"] code {
+   color: #3182bd;
+}
+
+
+
+@media screen and (min-width: 1301px) and (max-width:1449px) {
+    .sidebar {
+        width: 220px;
+        padding-left: 20px
+    }
+     .theme-container {
+        margin: auto;
+        width: 1080px;
+        // background-color: orange;
+        // width: 100%
+    }
+}
+
+@media screen and (min-width: 1450px) and (max-width:1679px) {
+     .sidebar {
+        width: 250px;
+        padding-left: 30px
+    }
+     .theme-container {
+        // background-color: orange;
+        width: 1280px;
+        margin-left: auto;
+        margin-right: 200px;
+    }
+    .theme-default-content:not(.custom) {
+         max-width: 1280px
+    }
+}
+
+
+@media screen and (min-width: 1680px) {
+    .sidebar {
+        width: 250px;
+        padding-left: 30px
+    }
+    .theme-container {
+        width: 1680px;
+        // background-color: orange;
+        margin-left: auto;
+        margin-right: auto
+    }
+     .theme-default-content:not(.custom) {
+         max-width: 1480px
+    }
+}

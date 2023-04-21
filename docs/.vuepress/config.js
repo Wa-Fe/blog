@@ -1,0 +1,38 @@
+module.exports = {
+  host: "localhost",
+
+  // title: 'my-blog',  // 设置网站标题
+  // dest: './dist',    // 设置输出目录
+  // base: '/mt-blog/', // 设置站点根路径
+  // repo: 'https://github.com/txs1992/mt-blog' // 添加 github 链接
+  themeConfig: {
+    search: false,
+    sidebar: [
+      {
+        title: "vue",
+        // path: '/guide/vue/',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          { title: "test1", path: "/guide/vue/test1" },
+          { title: "test2", path: "/guide/vue/test2" },
+        ],
+      },
+    ],
+  },
+  head: [
+    ["link", { rel: "stylesheet", href: "/styles/index.styl" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    ],
+    [
+      "link",
+      {
+        href: "https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap",
+        rel: "stylesheet",
+      },
+    ],
+  ],
+};
