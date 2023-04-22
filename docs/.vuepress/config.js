@@ -1,10 +1,10 @@
 module.exports = {
   host: "localhost",
-
-  // title: 'my-blog',  // 设置网站标题
+  title: 'Wa_Fe',  // 设置网站标题
   // dest: './dist',    // 设置输出目录
-  // base: '/mt-blog/', // 设置站点根路径
+  // base: '/blog/', // 设置站点根路径
   // repo: 'https://github.com/txs1992/mt-blog' // 添加 github 链接
+  home:false,
   themeConfig: {
     search: false,
     sidebar: [
@@ -16,6 +16,24 @@ module.exports = {
         children: [
           { title: "test1", path: "/guide/vue/test1" },
           { title: "test2", path: "/guide/vue/test2" },
+        ],
+      },
+      {
+        title: "js",
+        // path: '/guide/vue/',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          { title: "常用方法", path: "/guide/js/commonlyUsed" },
+        ],
+      },
+      {
+        title: "flutter",
+        // path: '/guide/vue/',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          { title: "添加权限报错", path: "/guide/flutter/articleOne" },
         ],
       },
     ],
