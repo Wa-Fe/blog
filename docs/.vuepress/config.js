@@ -14,8 +14,7 @@ module.exports = {
         collapsable: true,
         sidebarDepth: 1,
         children: [
-          { title: "test1", path: "/guide/vue/test1" },
-          { title: "test2", path: "/guide/vue/test2" },
+          { title: "在线CDN引入", path: "/guide/vue/articleone" },
         ],
       },
       {
@@ -34,6 +33,15 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: "添加权限报错", path: "/guide/flutter/articleOne" },
+        ],
+      },
+      {
+        title: "UniApp",
+        // path: '/guide/vue/',
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          { title: "ios配置", path: "/guide/uniapp/articleone" },
         ],
       },
     ],
