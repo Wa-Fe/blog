@@ -2,7 +2,7 @@
 title: cdn在线加载资源
 ---
 
-### 字节跳动在心啊cdn地址
+### 字节跳动在线cdn地址
 
 ```js
 https://cdn.bytedance.com/
