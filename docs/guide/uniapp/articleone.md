@@ -56,4 +56,4 @@ title: uniapp 配置iOS分享，Universal Links
 }
 ```
 
-## 配置完成可以通过 `https://search.developer.apple.com/appsearch-validation-tool/` 来进行检测，最多48小时生效
+### 配置完成可以通过 `https://search.developer.apple.com/appsearch-validation-tool/` 来进行检测，最多48小时生效
