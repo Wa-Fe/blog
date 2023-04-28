@@ -33,6 +33,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: "添加权限报错", path: "/guide/flutter/articleOne" },
+          { title: "网络调试", path: "/guide/flutter/articleThree" },
         ],
       },
       {
