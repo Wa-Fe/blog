@@ -34,6 +34,8 @@ module.exports = {
         children: [
           { title: "添加权限报错", path: "/guide/flutter/articleOne" },
           { title: "网络调试", path: "/guide/flutter/articleThree" },
+          { title: "Android证书", path: "/guide/flutter/articleTwo" },
+          { title: "替换启动的图标", path: "/guide/flutter/article4" },
         ],
       },
       {
