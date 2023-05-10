@@ -24,6 +24,8 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: "常用方法", path: "/guide/js/commonlyUsed" },
+          { title: "常用正则", path: "/guide/js/commonlyRegular" },
+          { title: "常用数组方法", path: "/guide/js/array1" },
         ],
       },
       {
