@@ -27,6 +27,7 @@ module.exports = {
           { title: "常用方法", path: "/guide/js/commonlyUsed" },
           { title: "常用正则", path: "/guide/js/commonlyRegular" },
           { title: "常用数组方法", path: "/guide/js/array1" },
+          { title: "正则数组方法", path: "/guide/js/regex1" },
         ],
       },
       {
