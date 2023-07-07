@@ -50,6 +50,7 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: "ios配置", path: "/guide/uniapp/articleone" },
+          { title: "wxmltocanvas", path: "/guide/uniapp/articletwo" },
         ],
       },
     ],
