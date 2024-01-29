@@ -39,7 +39,8 @@ title: uniapp 配置iOS分享，Universal Links
 
  文件名称为 `apple-app-site-association`,不带任何后缀，上传到服务器根目录，通过`https://test.com/apple-app-site-association`可以访问到
 
-`appid`为 TeamID与包名的组合
+`appid`为 TeamID与包名的组合,同时注意，访问此文件的时候必须可以在浏览器直接打开显示配置文件，如果以文件流的方式打开，则此文件会失效。可以在后台设置下请求文件的请求头为`application/json` 或者是 `text/html` 
+
 
 
 ```js
@@ -49,7 +50,7 @@ title: uniapp 配置iOS分享，Universal Links
         "details": [  
             {  
                 "appID": "LM8.com.xx.xx",  
-                "paths": ["*","/"]  
+                "paths": ["*"]  
             }  
         ]  
     }  
