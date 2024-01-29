@@ -48,7 +48,7 @@ title: uniapp 配置iOS分享，Universal Links
         "apps": [],  
         "details": [  
             {  
-                "appID": "LM8xxxx.com.xx.xx",  
+                "appID": "LM8.com.xx.xx",  
                 "paths": ["*","/"]  
             }  
         ]  
@@ -56,4 +56,9 @@ title: uniapp 配置iOS分享，Universal Links
 }
 ```
 
-### 配置完成可以通过 `https://search.developer.apple.com/appsearch-validation-tool/` 来进行检测，最多48小时生效
+### 配置完成可以通过 `https://yurl.chayev.com/` 来进行检测，最多48小时生效
+
+### 或者通过 `curl` 进行检测
+```
+curl -v https://app-site-association.cdn-apple.com/a/v1/xxx.com
+```
