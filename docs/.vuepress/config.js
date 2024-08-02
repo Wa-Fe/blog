@@ -16,6 +16,7 @@ module.exports = {
         children: [
           { title: "在线CDN引入", path: "/guide/vue/articleone" },
           { title: "组件的懒加载", path: "/guide/vue/article1" },
+          { title: "vue快速打包发布", path: "/guide/vue/article3" },
         ],
       },
       {
