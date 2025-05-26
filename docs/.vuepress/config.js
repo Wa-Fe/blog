@@ -55,6 +55,14 @@ module.exports = {
           { title: "wxmltocanvas", path: "/guide/uniapp/articletwo" },
         ],
       },
+      {
+        title: "mac",
+        collapsable: true,
+        sidebarDepth: 1,
+        children: [
+          { title: "mac常用命令", path: "/guide/mac/aiticle1" },
+        ],
+      },
     ],
   },
   head: [
