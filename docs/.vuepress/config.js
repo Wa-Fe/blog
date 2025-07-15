@@ -1,10 +1,10 @@
 module.exports = {
   host: "localhost",
-  title: 'Wa_Fe',  // 设置网站标题
+  title: "Wa_Fe", // 设置网站标题
   // dest: './dist',    // 设置输出目录
   // base: '/blog/', // 设置站点根路径
   // repo: 'https://github.com/txs1992/mt-blog' // 添加 github 链接
-  home:false,
+  home: false,
   themeConfig: {
     search: false,
     sidebar: [
@@ -59,9 +59,7 @@ module.exports = {
         title: "mac",
         collapsable: true,
         sidebarDepth: 1,
-        children: [
-          { title: "mac常用命令", path: "/guide/mac/aiticle1" },
-        ],
+        children: [{ title: "mac常用命令", path: "/guide/mac/aiticle1" }],
       },
     ],
   },
@@ -77,6 +75,14 @@ module.exports = {
       {
         href: "https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap",
         rel: "stylesheet",
+      },
+    ],
+    [
+      "script",
+      {
+        "data-ad-client": "G-YWYD3ZM9DV",
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-YWYD3ZM9DV",
       },
     ],
   ],

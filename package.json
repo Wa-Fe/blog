@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-shiki": "^2.0.0-beta.61",
-    "vuepress": "^1.9.9"
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-google-adsense": "^0.2.1"
   }
 }
