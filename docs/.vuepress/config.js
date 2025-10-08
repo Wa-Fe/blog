@@ -30,6 +30,7 @@ module.exports = {
           { title: "常用数组方法", path: "/guide/js/array1" },
           { title: "正则数组方法", path: "/guide/js/regex1" },
           { title: "获取url参数", path: "/guide/js/article1" },
+          { title: "mac bash脚本", path: "/guide/js/github1" },
         ],
       },
       {
