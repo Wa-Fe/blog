@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>uniapp 配置iOS分享，Universal Links | Wa_Fe</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="stylesheet" href="/styles/index.styl">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+    <script data-ad-client="G-YWYD3ZM9DV" async="true" src="https://www.googletagmanager.com/gtag/js?id=G-YWYD3ZM9DV"></script>
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.36c845a8.css" as="style"><link rel="preload" href="/assets/js/app.3e5286c9.js" as="script"><link rel="preload" href="/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/assets/js/21.afb4617a.js" as="script"><link rel="prefetch" href="/assets/js/10.4a81fbdf.js"><link rel="prefetch" href="/assets/js/11.eafab634.js"><link rel="prefetch" href="/assets/js/12.e7040337.js"><link rel="prefetch" href="/assets/js/13.4a71dd5e.js"><link rel="prefetch" href="/assets/js/14.fd582cd3.js"><link rel="prefetch" href="/assets/js/15.0b93ce45.js"><link rel="prefetch" href="/assets/js/16.14c31ec8.js"><link rel="prefetch" href="/assets/js/17.11ad6871.js"><link rel="prefetch" href="/assets/js/18.614b380c.js"><link rel="prefetch" href="/assets/js/19.1a78040d.js"><link rel="prefetch" href="/assets/js/20.3037d91d.js"><link rel="prefetch" href="/assets/js/22.99111c20.js"><link rel="prefetch" href="/assets/js/23.a7d0a10f.js"><link rel="prefetch" href="/assets/js/24.21b74c31.js"><link rel="prefetch" href="/assets/js/25.bba20955.js"><link rel="prefetch" href="/assets/js/3.f0ad1ae6.js"><link rel="prefetch" href="/assets/js/4.d12742be.js"><link rel="prefetch" href="/assets/js/5.216cae74.js"><link rel="prefetch" href="/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/assets/js/7.89f77039.js"><link rel="prefetch" href="/assets/js/8.defc4926.js"><link rel="prefetch" href="/assets/js/9.815b8b52.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.36c845a8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Wa_Fe</span></a> <div class="links"><!----> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>flutter</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>UniApp</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/uniapp/articleone.html" aria-current="page" class="active sidebar-link">ios配置</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guide/uniapp/articletwo.html" class="sidebar-link">wxmltocanvas</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mac</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>如果我要唤醒的网址为 https://test.com. 需要通过这个链接直接唤起App，或者是ios微信分享过后跳回自己的App</p> <h1 id="在uniapp里-manifest-json-中的配置"><a href="#在uniapp里-manifest-json-中的配置" class="header-anchor">#</a> 在<code>uniapp</code>里 <code>manifest.json</code> 中的配置</h1> <p>打包配置网址不带<code>http</code>,<code>https</code>,也不带后缀的域名</p> <p>分享配置填写完整域名，同时要在微信开放平台后台填写</p> <h3 id="ios打包配置"><a href="#ios打包配置" class="header-anchor">#</a> <code>ios打包配置</code></h3> <div class="language-js extra-class"><pre class="language-js"><code>  
+            <span class="token string-property property">&quot;ios&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token string-property property">&quot;capabilities&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token string-property property">&quot;entitlements&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token string-property property">&quot;com.apple.developer.associated-domains&quot;</span> <span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token string">&quot;applinks:test.com&quot;</span> <span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="ios分享配置"><a href="#ios分享配置" class="header-anchor">#</a> <code>ios分享配置</code></h3> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token string-property property">&quot;share&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token string-property property">&quot;weixin&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token string-property property">&quot;appid&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;wx37000000000&quot;</span><span class="token punctuation">,</span>
+                        <span class="token string-property property">&quot;UniversalLinks&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;https://test.com/ulink/&quot;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+</code></pre></div><h1 id="需要向服务器上传的文件"><a href="#需要向服务器上传的文件" class="header-anchor">#</a> 需要向服务器上传的文件</h1> <p>文件名称为 <code>apple-app-site-association</code>,不带任何后缀，上传到服务器根目录，通过<code>https://test.com/apple-app-site-association</code>可以访问到</p> <p><code>appid</code>为 TeamID与包名的组合,同时注意，访问此文件的时候必须可以在浏览器直接打开显示配置文件，如果以文件流的方式打开，则此文件会失效。可以在后台设置下请求文件的请求头为<code>application/json</code> 或者是 <code>text/html</code></p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token punctuation">{</span>  
+    <span class="token string-property property">&quot;applinks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>  
+        <span class="token string-property property">&quot;apps&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+        <span class="token string-property property">&quot;details&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+                <span class="token string-property property">&quot;appID&quot;</span><span class="token operator">:</span> <span class="token string">&quot;LM8.com.xx.xx&quot;</span><span class="token punctuation">,</span>  
+                <span class="token string-property property">&quot;paths&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>  
+            <span class="token punctuation">}</span>  
+        <span class="token punctuation">]</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="配置完成可以通过-https-yurl-chayev-com-来进行检测-最多48小时生效"><a href="#配置完成可以通过-https-yurl-chayev-com-来进行检测-最多48小时生效" class="header-anchor">#</a> 配置完成可以通过 <code>https://yurl.chayev.com/</code> 来进行检测，最多48小时生效</h3> <h3 id="或者通过-curl-进行检测"><a href="#或者通过-curl-进行检测" class="header-anchor">#</a> 或者通过 <code>curl</code> 进行检测</h3> <div class="language- extra-class"><pre class="language-text"><code>curl -v https://app-site-association.cdn-apple.com/a/v1/xxx.com
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/flutter/article5.html" class="prev">
+        gradle慢
+      </a></span> <span class="next"><a href="/guide/uniapp/articletwo.html">
+        wxmltocanvas
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3e5286c9.js" defer></script><script src="/assets/js/2.733019b2.js" defer></script><script src="/assets/js/21.afb4617a.js" defer></script>
+  </body>
+</html>

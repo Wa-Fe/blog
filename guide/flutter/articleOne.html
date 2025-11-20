@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>flutter添加permission_handler报错 | Wa_Fe</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="stylesheet" href="/styles/index.styl">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+    <script data-ad-client="G-YWYD3ZM9DV" async="true" src="https://www.googletagmanager.com/gtag/js?id=G-YWYD3ZM9DV"></script>
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.36c845a8.css" as="style"><link rel="preload" href="/assets/js/app.3e5286c9.js" as="script"><link rel="preload" href="/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/assets/js/10.4a81fbdf.js" as="script"><link rel="prefetch" href="/assets/js/11.eafab634.js"><link rel="prefetch" href="/assets/js/12.e7040337.js"><link rel="prefetch" href="/assets/js/13.4a71dd5e.js"><link rel="prefetch" href="/assets/js/14.fd582cd3.js"><link rel="prefetch" href="/assets/js/15.0b93ce45.js"><link rel="prefetch" href="/assets/js/16.14c31ec8.js"><link rel="prefetch" href="/assets/js/17.11ad6871.js"><link rel="prefetch" href="/assets/js/18.614b380c.js"><link rel="prefetch" href="/assets/js/19.1a78040d.js"><link rel="prefetch" href="/assets/js/20.3037d91d.js"><link rel="prefetch" href="/assets/js/21.afb4617a.js"><link rel="prefetch" href="/assets/js/22.99111c20.js"><link rel="prefetch" href="/assets/js/23.a7d0a10f.js"><link rel="prefetch" href="/assets/js/24.21b74c31.js"><link rel="prefetch" href="/assets/js/25.bba20955.js"><link rel="prefetch" href="/assets/js/3.f0ad1ae6.js"><link rel="prefetch" href="/assets/js/4.d12742be.js"><link rel="prefetch" href="/assets/js/5.216cae74.js"><link rel="prefetch" href="/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/assets/js/7.89f77039.js"><link rel="prefetch" href="/assets/js/8.defc4926.js"><link rel="prefetch" href="/assets/js/9.815b8b52.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.36c845a8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Wa_Fe</span></a> <div class="links"><!----> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>flutter</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/flutter/articleOne.html" aria-current="page" class="active sidebar-link">添加权限报错</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guide/flutter/articleThree.html" class="sidebar-link">网络调试</a></li><li><a href="/guide/flutter/articleTwo.html" class="sidebar-link">Android证书</a></li><li><a href="/guide/flutter/article4.html" class="sidebar-link">替换启动的图标</a></li><li><a href="/guide/flutter/article5.html" class="sidebar-link">gradle慢</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>UniApp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mac</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="permission-handler版本"><a href="#permission-handler版本" class="header-anchor">#</a> permission_handler版本</h3> <div class="language- extra-class"><pre class="language-text"><code>permission_handler: ^10.2.0
+</code></pre></div><h3 id="podfile-添加的文件如下"><a href="#podfile-添加的文件如下" class="header-anchor">#</a> <code>Podfile</code> 添加的文件如下</h3> <div class="language-dart extra-class"><pre class="language-dart"><code>post_install <span class="token keyword">do</span> <span class="token operator">|</span>installer<span class="token operator">|</span>
+  installer<span class="token punctuation">.</span>pods_project<span class="token punctuation">.</span>targets<span class="token punctuation">.</span>each <span class="token keyword">do</span> <span class="token operator">|</span>target<span class="token operator">|</span>
+    target<span class="token punctuation">.</span>build_configurations<span class="token punctuation">.</span>each <span class="token keyword">do</span> <span class="token operator">|</span>config<span class="token operator">|</span>
+      # <span class="token class-name">Here</span> are some configurations automatically generated by flutter
+
+      # <span class="token class-name">You</span> can enable the permissions needed <span class="token class-name"><span class="token namespace">here<span class="token punctuation">.</span></span> For</span> example to enable camera
+      # permission<span class="token punctuation">,</span> just remove the `#` character <span class="token keyword">in</span> front so it looks like <span class="token keyword">this</span><span class="token punctuation">:</span>
+      #
+      # ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>camera
+      # <span class="token string-literal"><span class="token string">'PERMISSION_CAMERA=1'</span></span>
+      #
+      #  <span class="token class-name">Preprocessor</span> definitions can be found <span class="token keyword">in</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token class-name">Baseflow</span><span class="token operator">/</span>flutter<span class="token operator">-</span>permission<span class="token operator">-</span>handler<span class="token operator">/</span>blob<span class="token operator">/</span>master<span class="token operator">/</span>permission_handler<span class="token operator">/</span>ios<span class="token operator">/</span><span class="token class-name">Classes</span><span class="token operator">/</span><span class="token class-name">PermissionHandlerEnums</span><span class="token punctuation">.</span>h
+      config<span class="token punctuation">.</span>build_settings<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'GCC_PREPROCESSOR_DEFINITIONS'</span></span><span class="token punctuation">]</span> <span class="token operator">||</span><span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string-literal"><span class="token string">'$(inherited)'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>calendar
+        # <span class="token string-literal"><span class="token string">'PERMISSION_EVENTS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>reminders
+        # <span class="token string-literal"><span class="token string">'PERMISSION_REMINDERS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>contacts
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CONTACTS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>camera
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CAMERA=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>microphone
+        # <span class="token string-literal"><span class="token string">'PERMISSION_MICROPHONE=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>speech
+        # <span class="token string-literal"><span class="token string">'PERMISSION_SPEECH_RECOGNIZER=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>photos
+        <span class="token string-literal"><span class="token string">'PERMISSION_PHOTOS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>location<span class="token punctuation">,</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>locationAlways<span class="token punctuation">,</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>locationWhenInUse<span class="token punctuation">]</span>
+        # <span class="token string-literal"><span class="token string">'PERMISSION_LOCATION=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>notification
+        # <span class="token string-literal"><span class="token string">'PERMISSION_NOTIFICATIONS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>mediaLibrary
+        # <span class="token string-literal"><span class="token string">'PERMISSION_MEDIA_LIBRARY=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>sensors
+        # <span class="token string-literal"><span class="token string">'PERMISSION_SENSORS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>bluetooth
+        # <span class="token string-literal"><span class="token string">'PERMISSION_BLUETOOTH=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>appTrackingTransparency
+        # <span class="token string-literal"><span class="token string">'PERMISSION_APP_TRACKING_TRANSPARENCY=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>criticalAlerts
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CRITICAL_ALERTS=1'</span></span>
+      <span class="token punctuation">]</span>
+
+    end
+  end
+end
+</code></pre></div><h3 id="在苹果的m1版本的电脑上报错-flutter-flutter-h-需要在第二行与第三行额外添加一行代码-但是非m1版本的电脑不确定会不会出现这样的问题"><a href="#在苹果的m1版本的电脑上报错-flutter-flutter-h-需要在第二行与第三行额外添加一行代码-但是非m1版本的电脑不确定会不会出现这样的问题" class="header-anchor">#</a> 在苹果的M1版本的电脑上报错 <code>Flutter/Flutter.h</code>,需要在第二行与第三行额外添加一行代码，但是非M1版本的电脑不确定会不会出现这样的问题</h3> <div class="language- extra-class"><pre class="language-text"><code>flutter_additional_ios_build_settings(target)
+</code></pre></div><p>全部代码如下</p> <div class="language-dart extra-class"><pre class="language-dart"><code>post_install <span class="token keyword">do</span> <span class="token operator">|</span>installer<span class="token operator">|</span>
+  installer<span class="token punctuation">.</span>pods_project<span class="token punctuation">.</span>targets<span class="token punctuation">.</span>each <span class="token keyword">do</span> <span class="token operator">|</span>target<span class="token operator">|</span>
+    <span class="token function">flutter_additional_ios_build_settings</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+    target<span class="token punctuation">.</span>build_configurations<span class="token punctuation">.</span>each <span class="token keyword">do</span> <span class="token operator">|</span>config<span class="token operator">|</span>
+      # <span class="token class-name">Here</span> are some configurations automatically generated by flutter
+
+      # <span class="token class-name">You</span> can enable the permissions needed <span class="token class-name"><span class="token namespace">here<span class="token punctuation">.</span></span> For</span> example to enable camera
+      # permission<span class="token punctuation">,</span> just remove the `#` character <span class="token keyword">in</span> front so it looks like <span class="token keyword">this</span><span class="token punctuation">:</span>
+      #
+      # ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>camera
+      # <span class="token string-literal"><span class="token string">'PERMISSION_CAMERA=1'</span></span>
+      #
+      #  <span class="token class-name">Preprocessor</span> definitions can be found <span class="token keyword">in</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token class-name">Baseflow</span><span class="token operator">/</span>flutter<span class="token operator">-</span>permission<span class="token operator">-</span>handler<span class="token operator">/</span>blob<span class="token operator">/</span>master<span class="token operator">/</span>permission_handler<span class="token operator">/</span>ios<span class="token operator">/</span><span class="token class-name">Classes</span><span class="token operator">/</span><span class="token class-name">PermissionHandlerEnums</span><span class="token punctuation">.</span>h
+      config<span class="token punctuation">.</span>build_settings<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'GCC_PREPROCESSOR_DEFINITIONS'</span></span><span class="token punctuation">]</span> <span class="token operator">||</span><span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string-literal"><span class="token string">'$(inherited)'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>calendar
+        # <span class="token string-literal"><span class="token string">'PERMISSION_EVENTS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>reminders
+        # <span class="token string-literal"><span class="token string">'PERMISSION_REMINDERS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>contacts
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CONTACTS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>camera
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CAMERA=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>microphone
+        # <span class="token string-literal"><span class="token string">'PERMISSION_MICROPHONE=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>speech
+        # <span class="token string-literal"><span class="token string">'PERMISSION_SPEECH_RECOGNIZER=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>photos
+        <span class="token string-literal"><span class="token string">'PERMISSION_PHOTOS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>location<span class="token punctuation">,</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>locationAlways<span class="token punctuation">,</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>locationWhenInUse<span class="token punctuation">]</span>
+        # <span class="token string-literal"><span class="token string">'PERMISSION_LOCATION=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>notification
+        # <span class="token string-literal"><span class="token string">'PERMISSION_NOTIFICATIONS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>mediaLibrary
+        # <span class="token string-literal"><span class="token string">'PERMISSION_MEDIA_LIBRARY=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>sensors
+        # <span class="token string-literal"><span class="token string">'PERMISSION_SENSORS=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>bluetooth
+        # <span class="token string-literal"><span class="token string">'PERMISSION_BLUETOOTH=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>appTrackingTransparency
+        # <span class="token string-literal"><span class="token string">'PERMISSION_APP_TRACKING_TRANSPARENCY=1'</span></span><span class="token punctuation">,</span>
+
+        ## dart<span class="token punctuation">:</span> <span class="token class-name">PermissionGroup</span><span class="token punctuation">.</span>criticalAlerts
+        # <span class="token string-literal"><span class="token string">'PERMISSION_CRITICAL_ALERTS=1'</span></span>
+      <span class="token punctuation">]</span>
+
+    end
+  end
+end
+</code></pre></div><h3 id="此问题是查阅此项目的issues所得-地址为https-github-com-baseflow-flutter-permission-handler-issues-750"><a href="#此问题是查阅此项目的issues所得-地址为https-github-com-baseflow-flutter-permission-handler-issues-750" class="header-anchor">#</a> 此问题是查阅此项目的issues所得，地址为<code>https://github.com/Baseflow/flutter-permission-handler/issues/750</code></h3></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/js/github1.html" class="prev">
+        mac bash脚本
+      </a></span> <span class="next"><a href="/guide/flutter/articleThree.html">
+        网络调试
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3e5286c9.js" defer></script><script src="/assets/js/2.733019b2.js" defer></script><script src="/assets/js/10.4a81fbdf.js" defer></script>
+  </body>
+</html>

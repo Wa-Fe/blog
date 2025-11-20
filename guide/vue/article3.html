@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue打包发布的命令(sh脚本) | Wa_Fe</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="stylesheet" href="/styles/index.styl">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+    <script data-ad-client="G-YWYD3ZM9DV" async="true" src="https://www.googletagmanager.com/gtag/js?id=G-YWYD3ZM9DV"></script>
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.36c845a8.css" as="style"><link rel="preload" href="/assets/js/app.3e5286c9.js" as="script"><link rel="preload" href="/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/assets/js/24.21b74c31.js" as="script"><link rel="prefetch" href="/assets/js/10.4a81fbdf.js"><link rel="prefetch" href="/assets/js/11.eafab634.js"><link rel="prefetch" href="/assets/js/12.e7040337.js"><link rel="prefetch" href="/assets/js/13.4a71dd5e.js"><link rel="prefetch" href="/assets/js/14.fd582cd3.js"><link rel="prefetch" href="/assets/js/15.0b93ce45.js"><link rel="prefetch" href="/assets/js/16.14c31ec8.js"><link rel="prefetch" href="/assets/js/17.11ad6871.js"><link rel="prefetch" href="/assets/js/18.614b380c.js"><link rel="prefetch" href="/assets/js/19.1a78040d.js"><link rel="prefetch" href="/assets/js/20.3037d91d.js"><link rel="prefetch" href="/assets/js/21.afb4617a.js"><link rel="prefetch" href="/assets/js/22.99111c20.js"><link rel="prefetch" href="/assets/js/23.a7d0a10f.js"><link rel="prefetch" href="/assets/js/25.bba20955.js"><link rel="prefetch" href="/assets/js/3.f0ad1ae6.js"><link rel="prefetch" href="/assets/js/4.d12742be.js"><link rel="prefetch" href="/assets/js/5.216cae74.js"><link rel="prefetch" href="/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/assets/js/7.89f77039.js"><link rel="prefetch" href="/assets/js/8.defc4926.js"><link rel="prefetch" href="/assets/js/9.815b8b52.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.36c845a8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Wa_Fe</span></a> <div class="links"><!----> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>vue</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/vue/articleone.html" class="sidebar-link">在线CDN引入</a></li><li><a href="/guide/vue/article1.html" class="sidebar-link">组件的懒加载</a></li><li><a href="/guide/vue/article3.html" aria-current="page" class="active sidebar-link">vue快速打包发布</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>flutter</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>UniApp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mac</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="执行命令为-bash-xx-sh"><a href="#执行命令为-bash-xx-sh" class="header-anchor">#</a> 执行命令为 <code>bash xx.sh</code></h4> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token shebang important">#!/opt/homebrew/bin/bash</span>
+
+
+<span class="token assign-left variable">REMOTE_REPO</span><span class="token operator">=</span><span class="token string">&quot;xxxx.git&quot;</span>
+
+<span class="token comment"># 提示用户输入commit信息</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-ep</span> <span class="token string">&quot;请输入commit信息: &quot;</span> COMMIT_MESSAGE
+
+<span class="token comment"># 分支数组及其对应的打包命令</span>
+<span class="token builtin class-name">declare</span> <span class="token parameter variable">-A</span> <span class="token assign-left variable">branch_commands</span><span class="token operator">=</span><span class="token punctuation">(</span>
+    <span class="token punctuation">[</span><span class="token string">&quot;xxxx&quot;</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;npm run build:prod&quot;</span>
+    <span class="token punctuation">[</span><span class="token string">&quot;xxxx&quot;</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;npm run build:dev&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 显示分支选项</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;请选择要发布的分支（输入数字）：&quot;</span>
+<span class="token assign-left variable">index</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">branch</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">${<span class="token operator">!</span>branch_commands<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>&quot;</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$index</span>)<span class="token variable">$branch</span>&quot;</span>
+    <span class="token variable"><span class="token punctuation">((</span>index<span class="token operator">++</span><span class="token punctuation">))</span></span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># 读取用户选择的分支</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;分支选择: &quot;</span> branch_choice
+
+<span class="token comment"># 获取分支名</span>
+<span class="token assign-left variable">BRANCH_KEY</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">${<span class="token operator">!</span>branch_commands<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>&quot;</span> <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">' '</span> <span class="token string">'\n'</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">${branch_choice}</span>p&quot;</span><span class="token variable">)</span></span>
+
+<span class="token comment"># 确保选择了有效的分支</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">$BRANCH_KEY</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;无效的分支选择。&quot;</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 获取选择的分支名</span>
+<span class="token assign-left variable">BRANCH</span><span class="token operator">=</span><span class="token variable">$BRANCH_KEY</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;您选择的分支是: <span class="token variable">$BRANCH</span>&quot;</span>
+
+<span class="token comment"># 获取对应的打包命令</span>
+<span class="token assign-left variable">BUILD_CMD</span><span class="token operator">=</span><span class="token variable">${branch_commands<span class="token punctuation">[</span>$BRANCH<span class="token punctuation">]</span>}</span>
+
+<span class="token comment"># 执行对应的打包命令</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;正在打包 <span class="token variable">$BRANCH</span>...&quot;</span> <span class="token variable">$BUILD_CMD</span> <span class="token operator">||</span> <span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">'打包失败'</span> <span class="token punctuation">;</span> <span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token variable">$BUILD_CMD</span>
+
+
+<span class="token comment"># 切换到打包后的目录，通常是dist</span>
+<span class="token builtin class-name">cd</span> dist
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;进入dist&quot;</span>
+
+<span class="token comment"># 初始化git仓库（如果尚未初始化）</span>
+<span class="token function">git</span> init
+
+<span class="token function">git</span> branch <span class="token parameter variable">-M</span> main master
+
+
+<span class="token comment"># 添加所有文件到暂存区</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-A</span>
+
+<span class="token comment"># 创建一个新的commit</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">&quot;<span class="token variable">$COMMIT_MESSAGE</span>&quot;</span>
+
+
+<span class="token comment"># 强制推送到远程仓库的指定分支</span>
+<span class="token function">git</span> push <span class="token parameter variable">-f</span> <span class="token variable">$REMOTE_REPO</span> master:<span class="token variable">$BRANCH</span>
+
+<span class="token comment"># 返回项目根目录</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;打包完成&quot;</span>
+
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/vue/article1.html" class="prev">
+        组件的懒加载
+      </a></span> <span class="next"><a href="/guide/js/commonlyUsed.html">
+        常用方法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3e5286c9.js" defer></script><script src="/assets/js/2.733019b2.js" defer></script><script src="/assets/js/24.21b74c31.js" defer></script>
+  </body>
+</html>
